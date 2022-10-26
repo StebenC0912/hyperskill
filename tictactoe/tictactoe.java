@@ -20,23 +20,21 @@ public class tictactoe {
     }
 
     public static boolean win(char check, String input) {
+        if (input.charAt(0) == check && input.charAt(0) == input.charAt(4)
+                && input.charAt(8) == input.charAt(0)) {
+            return true;
+        }
+        if (input.charAt(2) == check && input.charAt(2) == input.charAt(4)
+                && input.charAt(6) == input.charAt(2)) {
+            return true;
+        }
         for (int i = 0; i < 6; i++) {
             if (i < 3 && input.charAt(i) == check && input.charAt(i) == input.charAt(i + 3)
                     && input.charAt(i) == input.charAt(i + 6)) {
                 return true;
             }
-            if (i == 0 || i == 3 || i == 6) {
-                if (input.charAt(i) == check && input.charAt(i) == input.charAt(i + 1)
-                        && input.charAt(i) == input.charAt(i + 2)) {
-                    return true;
-                }
-            }
-            if (i == 0 && input.charAt(i) == check && input.charAt(0) == input.charAt(4)
-                    && input.charAt(8) == input.charAt(0)) {
-                return true;
-            }
-            if (i == 2 && input.charAt(i) == check && input.charAt(2) == input.charAt(4)
-                    && input.charAt(6) == input.charAt(i)) {
+            if ((i == 0 || i == 3 || i == 6) && (input.charAt(i) == check && input.charAt(i) == input.charAt(i + 1)
+                    && input.charAt(i) == input.charAt(i + 2))) {
                 return true;
             }
         }
@@ -118,12 +116,14 @@ public class tictactoe {
         Scanner sc = new Scanner(System.in);
         String input = sc.next();
         printTic(input);
-        // boolean XWin = win('X', input);
-        // boolean OWin = win('O', input);
-        // printResult(input, XWin, OWin);
-
+        boolean XWin = win('X', input);
+        boolean OWin = win('O', input);
+        printResult(input, XWin, OWin);
         input = takeOneMove(input);
+        XWin = win('X', input);
+        OWin = win('O', input);
         printTic(input);
+        printResult(input, XWin, OWin);
         sc.close();
 
     }

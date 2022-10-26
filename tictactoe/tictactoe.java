@@ -20,6 +20,7 @@ public class tictactoe {
     }
 
     public static boolean win(char check, String input) {
+        // check win diagonal
         if (input.charAt(0) == check && input.charAt(0) == input.charAt(4)
                 && input.charAt(8) == input.charAt(0)) {
             return true;
@@ -28,11 +29,14 @@ public class tictactoe {
                 && input.charAt(6) == input.charAt(2)) {
             return true;
         }
+
         for (int i = 0; i < 6; i++) {
+            // check win in col
             if (i < 3 && input.charAt(i) == check && input.charAt(i) == input.charAt(i + 3)
                     && input.charAt(i) == input.charAt(i + 6)) {
                 return true;
             }
+            // check win in row
             if ((i == 0 || i == 3 || i == 6) && (input.charAt(i) == check && input.charAt(i) == input.charAt(i + 1)
                     && input.charAt(i) == input.charAt(i + 2))) {
                 return true;
@@ -50,10 +54,12 @@ public class tictactoe {
                 numY++;
             }
         }
+        // check if 1 of 2 players take turn of opponent
         if (numX - numY >= 2 || numY - numX >= 2) {
             System.out.println("Impossible");
             System.exit(-1);
         }
+        // check if 2 players win together.
         if (OWin == true && XWin == true) {
             System.out.println("Impossible");
             System.exit(-1);
@@ -76,13 +82,13 @@ public class tictactoe {
                 System.out.println("X wins");
             }
         }
-
     }
 
     public static String takeOneMove(String input) {
         Scanner sc = new Scanner(System.in);
         char[][] map = new char[3][3];
         int index = 0;
+        // copy string to array.
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 map[i][j] = input.charAt(index);
@@ -95,9 +101,11 @@ public class tictactoe {
             int row = sc.nextInt();
             System.out.print("> ");
             int col = sc.nextInt();
+            // check empty slot
             if (map[row - 1][col - 1] == 'X' || map[row - 1][col - 1] == 'O') {
                 System.out.println("This cell is occupied! Choose another one!");
             } else {
+                // return array to string
                 input = "";
                 map[row - 1][col - 1] = 'X';
                 for (int i = 0; i < 3; i++) {
@@ -108,7 +116,6 @@ public class tictactoe {
                 inValidEnter = false;
             }
         }
-
         return input;
     }
 

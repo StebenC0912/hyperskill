@@ -1,5 +1,6 @@
 package tictactoe;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class tictactoe {
@@ -55,15 +56,15 @@ public class tictactoe {
             }
         }
         // check if 1 of 2 players take turn of opponent
-        if (numX - numY >= 2 || numY - numX >= 2) {
-            System.out.println("Impossible");
-            System.exit(-1);
-        }
+        // if (numX - numY >= 2 || numY - numX >= 2) {
+        // System.out.println("Impossible");
+        // System.exit(-1);
+        // }
         // check if 2 players win together.
-        if (OWin == true && XWin == true) {
-            System.out.println("Impossible");
-            System.exit(-1);
-        }
+        // if (OWin == true && XWin == true) {
+        // System.out.println("Impossible");
+        // System.exit(-1);
+        // }
         if (numX + numY == 9) {
             if (OWin == true) {
                 System.out.println("O wins");
@@ -71,11 +72,12 @@ public class tictactoe {
                 System.out.println("X wins");
             } else {
                 System.out.println("Draw");
+                System.exit(0);
             }
         } else {
-            if (OWin == false && XWin == false) {
-                System.out.println("Game not finished");
-            }
+            // if (OWin == false && XWin == false) {
+            // System.out.println("Game not finished");
+            // }
             if (OWin == true) {
                 System.out.println("O wins");
             } else if (XWin == true) {
@@ -84,7 +86,7 @@ public class tictactoe {
         }
     }
 
-    public static String takeOneMove(String input) {
+    public static String takeOneMove(char move, String input) {
         Scanner sc = new Scanner(System.in);
         char[][] map = new char[3][3];
         int index = 0;
@@ -97,23 +99,36 @@ public class tictactoe {
         }
         boolean inValidEnter = true;
         while (inValidEnter) {
-            System.out.print("> ");
-            int row = sc.nextInt();
-            System.out.print("> ");
-            int col = sc.nextInt();
-            // check empty slot
-            if (map[row - 1][col - 1] == 'X' || map[row - 1][col - 1] == 'O') {
-                System.out.println("This cell is occupied! Choose another one!");
-            } else {
-                // return array to string
-                input = "";
-                map[row - 1][col - 1] = 'X';
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        input = input.concat(Character.toString(map[i][j]));
-                    }
+            try {
+                System.out.print("> ");
+                int row = sc.nextInt();
+                int col = sc.nextInt();
+
+                if (row >= 4 || col >= 4) {
+                    System.out.println("Coordinates should be from 1 to 3!");
+                    continue;
                 }
+                // check empty spot
+                if (map[row - 1][col - 1] == 'X' || map[row - 1][col - 1] == 'O') {
+                    System.out.println("This cell is occupied! Choose another one!");
+                } else {
+                    // return array to string
+                    input = "";
+                    map[row - 1][col - 1] = move;
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            input = input.concat(Character.toString(map[i][j]));
+                        }
+                    }
+
+                    inValidEnter = false;
+                }
+            } catch (InputMismatchException e) {
+                // TODO: handle exception
+                System.out.println("You should enter numbers!");
                 inValidEnter = false;
+                // e.printStackTrace();
+
             }
         }
         return input;
@@ -121,16 +136,26 @@ public class tictactoe {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input = sc.next();
+        String input = "         ";
         printTic(input);
         boolean XWin = win('X', input);
         boolean OWin = win('O', input);
-        printResult(input, XWin, OWin);
-        input = takeOneMove(input);
-        XWin = win('X', input);
-        OWin = win('O', input);
-        printTic(input);
-        printResult(input, XWin, OWin);
+        int i = 0;
+        char move;
+        while (OWin == false && XWin == false && i <= 8) {
+            if (i % 2 != 0) {
+                move = 'O';
+            } else {
+                move = 'X';
+            }
+            input = takeOneMove(move,input);
+            XWin = win('X', input);
+            OWin = win('O', input);
+            printTic(input);
+            printResult(input, XWin, OWin);
+            i++;
+        }
+
         sc.close();
 
     }

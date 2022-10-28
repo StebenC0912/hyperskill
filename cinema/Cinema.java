@@ -6,7 +6,7 @@ public class Cinema {
     public static Scanner sc = new Scanner(System.in);
 
     public static char[][] start(int rows, int seatsEachRow) {
-        
+
         char[][] map = new char[rows + 1][seatsEachRow + 1];
 
         for (int i = 0; i < rows + 1; i++) {
@@ -27,6 +27,7 @@ public class Cinema {
 
     public static int calIncome(int rows, int seatsEachRow) {
         int AllIncome = 0;
+        String s = "";
 
         int priceEachTicket, frontSeatPrice, backSeatPrice;
         if (rows * seatsEachRow < 60) {
@@ -57,7 +58,7 @@ public class Cinema {
             System.out.println("Ticket price: $10");
         } else if (rowCheck <= (rows / 2)) {
             System.out.println("Ticket price: $10");
-        } else{
+        } else {
             System.out.println("Ticket price: $8");
         }
         return map;
@@ -73,6 +74,12 @@ public class Cinema {
         }
     }
 
+    public static int menu() {
+        System.out.print("1. Show the seats\n2. Buy a ticket\n0. Exit\n> ");
+        int choice = sc.nextInt();
+        return choice;
+    }
+
     public static void main(String[] args) {
         System.out.println("Enter the number of rows: ");
         System.out.print("> ");
@@ -81,8 +88,20 @@ public class Cinema {
         System.out.print("> ");
         int seatsEachRow = sc.nextInt();
         char[][] map = start(rows, seatsEachRow);
-        printSit(rows, seatsEachRow, map);
-        showPrice(rows, seatsEachRow, map);
-        printSit(rows, seatsEachRow, map);
+        int userChoice = menu();
+        while (userChoice != 0) {
+            switch (userChoice) {
+                case 1:
+                    printSit(rows, seatsEachRow, map);
+                    userChoice = menu();
+                    break;
+                case 2:
+                    showPrice(rows, seatsEachRow, map);
+                    userChoice = menu();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

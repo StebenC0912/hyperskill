@@ -5,24 +5,22 @@ import java.util.Scanner;
 public class Cinema {
     public static Scanner sc = new Scanner(System.in);
 
-    public static char[][] printSit(int rows, int seatsEachRow) {
-        System.out.println("Cinema:");
-        char[][] map = new char[rows][seatsEachRow + 1];
+    public static char[][] start(int rows, int seatsEachRow) {
+        
+        char[][] map = new char[rows + 1][seatsEachRow + 1];
+
         for (int i = 0; i < rows + 1; i++) {
-            if (i == 0) {
-                System.out.print("  ");
-            } else {
-                System.out.print(i + " ");
-            }
-            for (int j = 1; j < seatsEachRow + 1; j++) {
-                if (i == 0) {
-                    System.out.print(j + " ");
+            for (int j = 0; j < seatsEachRow + 1; j++) {
+                if (i == 0 && j == 0) {
+                    map[0][0] = ' ';
+                } else if (i == 0 && j != 0) {
+                    map[i][j] = (char) (j + '0');
+                } else if (i != 0 && j == 0) {
+                    map[i][j] = (char) (i + '0');
                 } else {
-                    map[i - 1][j - 1] = 'S';
-                    System.out.print("S ");
+                    map[i][j] = 'S';
                 }
             }
-            System.out.println(" ");
         }
         return map;
     }
@@ -48,8 +46,31 @@ public class Cinema {
         return AllIncome;
     }
 
-    public static void showPrice() {
+    public static char[][] showPrice(int rows, int seatsEachRow, char[][] map) {
+        int totalSeat = rows * seatsEachRow;
+        System.out.print("Enter a row number: \n> ");
+        int rowCheck = sc.nextInt();
+        System.out.print("Enter a seat number in that row:\n> ");
+        int seatCheck = sc.nextInt();
+        map[rowCheck][seatCheck] = 'B';
+        if (totalSeat < 60) {
+            System.out.println("Ticket price: $10");
+        } else if (rowCheck <= (rows / 2)) {
+            System.out.println("Ticket price: $10");
+        } else{
+            System.out.println("Ticket price: $8");
+        }
+        return map;
+    }
 
+    public static void printSit(int rows, int seatsEachRow, char[][] map) {
+        System.out.println("Cinema:");
+        for (int i = 0; i < rows + 1; i++) {
+            for (int j = 0; j < seatsEachRow + 1; j++) {
+                System.out.print(map[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
     }
 
     public static void main(String[] args) {
@@ -59,13 +80,9 @@ public class Cinema {
         System.out.println("Enter the number of seats in each row:");
         System.out.print("> ");
         int seatsEachRow = sc.nextInt();
-        char[][] map = printSit(rows, seatsEachRow);
-        for (int i = 0; i < map.length; i++) {
-            System.out.print(i + 1 + " ");
-            for (int j = 0; j < map.length; j++) {
-                System.out.print(map[i][j] + " ");
-            }
-            System.out.println(" ");
-        }
+        char[][] map = start(rows, seatsEachRow);
+        printSit(rows, seatsEachRow, map);
+        showPrice(rows, seatsEachRow, map);
+        printSit(rows, seatsEachRow, map);
     }
 }

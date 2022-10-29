@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Cinema {
     public static Scanner sc = new Scanner(System.in);
+    public static int purchasedTicket = 0;
+    public static int currentIncome = 0;
 
     public static char[][] start(int rows, int seatsEachRow) {
 
@@ -27,7 +29,6 @@ public class Cinema {
 
     public static int calIncome(int rows, int seatsEachRow) {
         int AllIncome = 0;
-        String s = "";
 
         int priceEachTicket, frontSeatPrice, backSeatPrice;
         if (rows * seatsEachRow < 60) {
@@ -43,24 +44,38 @@ public class Cinema {
                 AllIncome = (frontSeatPrice + backSeatPrice) * (rows / 2) * seatsEachRow;
             }
         }
-        System.out.printf("Total income: \n$%d", AllIncome);
         return AllIncome;
     }
 
-    public static char[][] showPrice(int rows, int seatsEachRow, char[][] map) {
+    public static char[][] purchase(int rows, int seatsEachRow, char[][] map) {
         int totalSeat = rows * seatsEachRow;
         System.out.print("Enter a row number: \n> ");
         int rowCheck = sc.nextInt();
         System.out.print("Enter a seat number in that row:\n> ");
         int seatCheck = sc.nextInt();
-        map[rowCheck][seatCheck] = 'B';
-        if (totalSeat < 60) {
-            System.out.println("Ticket price: $10");
-        } else if (rowCheck <= (rows / 2)) {
-            System.out.println("Ticket price: $10");
-        } else {
-            System.out.println("Ticket price: $8");
+
+        try {
+            if (map[rowCheck][seatCheck] == 'B') {
+                System.out.println("That ticket has already been purchased!");
+                purchase(rows, seatsEachRow, map);
+            }
+            map[rowCheck][seatCheck] = 'B';
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // TODO: handle exception
+            System.out.println("Wrong input!");
+            purchase(rows, seatsEachRow, map);
         }
+
+        if (totalSeat >= 60 && rowCheck > (rows / 2)) {
+            System.out.println("Ticket price: $8");
+            currentIncome += 8;
+        } else {
+            System.out.println("Ticket price: $10");
+            currentIncome += 10;
+        }
+        purchasedTicket++;
+
         return map;
     }
 
@@ -75,9 +90,20 @@ public class Cinema {
     }
 
     public static int menu() {
-        System.out.print("1. Show the seats\n2. Buy a ticket\n0. Exit\n> ");
+        System.out.print("1. Show the seats\n2. Buy a ticket\n3. Statistics\n0. Exit\n> ");
         int choice = sc.nextInt();
         return choice;
+    }
+
+    public static void Statistics(int rows, int seatsEachRow) {
+        int AllIncome = calIncome(rows, seatsEachRow);
+        double percentage = Double.parseDouble(Integer.toString(purchasedTicket))
+                / Double.parseDouble(Integer.toString(rows * seatsEachRow)) * 100;
+        System.out.println("Number of purchased tickets: " + purchasedTicket);
+        System.out.printf("Percentage: %.2f%%\n", percentage);
+        System.out.printf("Current income: $%d\n", currentIncome);
+        System.out.printf("Total income: $%d", AllIncome);
+        System.out.println("");
     }
 
     public static void main(String[] args) {
@@ -96,7 +122,11 @@ public class Cinema {
                     userChoice = menu();
                     break;
                 case 2:
-                    showPrice(rows, seatsEachRow, map);
+                    purchase(rows, seatsEachRow, map);
+                    userChoice = menu();
+                    break;
+                case 3:
+                    Statistics(rows, seatsEachRow);
                     userChoice = menu();
                     break;
                 default:

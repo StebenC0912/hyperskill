@@ -48,8 +48,9 @@ public class Cinema {
     }
 
     public static char[][] purchase(int rows, int seatsEachRow, char[][] map) {
+
         int totalSeat = rows * seatsEachRow;
-        System.out.print("Enter a row number: \n> ");
+        System.out.print("Enter a row number:\n> ");
         int rowCheck = sc.nextInt();
         System.out.print("Enter a seat number in that row:\n> ");
         int seatCheck = sc.nextInt();
@@ -57,16 +58,15 @@ public class Cinema {
         try {
             if (map[rowCheck][seatCheck] == 'B') {
                 System.out.println("That ticket has already been purchased!");
-                purchase(rows, seatsEachRow, map);
+                return purchase(rows, seatsEachRow, map);
             }
             map[rowCheck][seatCheck] = 'B';
-
         } catch (ArrayIndexOutOfBoundsException e) {
             // TODO: handle exception
             System.out.println("Wrong input!");
-            purchase(rows, seatsEachRow, map);
-        }
+            return purchase(rows, seatsEachRow, map);
 
+        }
         if (totalSeat >= 60 && rowCheck > (rows / 2)) {
             System.out.println("Ticket price: $8");
             currentIncome += 8;

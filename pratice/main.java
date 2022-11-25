@@ -2,77 +2,134 @@ package pratice;
 
 public class main {
     public static void main(String[] args) {
-        System.out.println("hello");
-        ;
+        MutableShape circle = new Circle(2.0f, 3.5f, 10.1f);
+
+        circle.move(10.1f, 20.2f);
+        circle.scale(2.2f);
+
+        ((Circle) circle).getRadius();
     }
 }
-class Publication {
 
-    private String title;
+interface Movable {
 
-    public Publication(String title) {
-        this.title = title;
-    }
+    void move(float dx, float dy);
+}
 
-    public final String getInfo() {
-        // write your code here
-        return getType() + ": " + getDetails();
-    }
+interface Scalable {
 
-    public String getType() {
-        return "Publication";
-    }
+    void scale(float factor);
+}
 
-    public String getDetails() {
-        return "The new era";
-    }
+interface MutableShape extends Movable, Scalable {
 
 }
 
-class Newspaper extends Publication {
+final class Circle implements MutableShape {
 
-    private String source;
+    /**
+     * Defines the horizontal position of the center of the circle
+     */
+    private float centerX;
 
-    public Newspaper(String title, String source) {
-        super(title);
-        this.source = source;
+    /**
+     * Defines the vertical position of the center of the circle
+     */
+    private float centerY;
+
+    /**
+     * Defines the radius of the circle
+     */
+    private float radius;
+
+    public Circle(float centerX, float centerY, float radius) {
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.radius = radius;
     }
 
-    // write your code here
+    public float getCenterX() {
+        return centerX;
+    }
+
+    public float getCenterY() {
+        return centerY;
+    }
+
+    public float getRadius() {
+        return radius;
+    }
+
     @Override
-    public String getType() {
-        return "Newspaper";
+    public void move(float dx, float dy) {
+        // TODO Auto-generated method stub
+        this.centerX += dx;
+        this.centerY += dy;
     }
 
     @Override
-    public String getDetail() {
-        return 
+    public void scale(float factor) {
+        // TODO Auto-generated method stub
+        this.radius *= factor;
     }
-
 }
 
-class Article extends Publication {
+final class Rectangle implements MutableShape{
 
-    private String author;
+    /**
+     * Defines the X coordinate of the upper-left corner of the rectangle.
+     */
+    private float x;
 
-    public Article(String title, String author) {
-        super(title);
-        this.author = author;
+    /**
+     * Defines the Y coordinate of the upper-left corner of the rectangle.
+     */
+    private float y;
+
+    /**
+     * Defines the width of the rectangle.
+     */
+    private float width;
+
+    /**
+     * Defines the height of the rectangle.
+     */
+    private float height;
+
+    public Rectangle(float x, float y, float w, float h) {
+        this.x = x;
+        this.y = y;
+        this.width = w;
+        this.height = h;
     }
 
-    // write your code here
-
-}
-
-class Announcement extends Publication {
-
-    private int daysToExpire;
-
-    public Announcement(String title, int daysToExpire) {
-        super(title);
-        this.daysToExpire = daysToExpire;
+    public float getX() {
+        return x;
     }
 
-    // write your code here
+    public float getY() {
+        return y;
+    }
 
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    @Override
+    public void move(float dx, float dy) {
+        // TODO Auto-generated method stub
+        this.x += dx;
+        this.y += dy;
+    }
+
+    @Override
+    public void scale(float factor) {
+        // TODO Auto-generated method stub
+        this.height *= factor;
+        this.width *= factor;
+    }
 }

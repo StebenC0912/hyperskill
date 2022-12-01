@@ -62,7 +62,6 @@ public class Cinema {
             }
             map[rowCheck][seatCheck] = 'B';
         } catch (ArrayIndexOutOfBoundsException e) {
-            // TODO: handle exception
             System.out.println("Wrong input!");
             return purchase(rows, seatsEachRow, map);
 

@@ -10,7 +10,7 @@ public class _451_Sort_Char_By_Freq {
         
         char temp = sChar[0];
         int frequency = 1;
-
+        
         for (int i = 1; i < sChar.length; i++) {
             if (temp == sChar[i]) {
                 frequency++;

@@ -1,27 +1,17 @@
 package practice;
 
+import java.io.IOException;
+
 public class practice {
     public static void main(String[] args) {
-        for (int i = 9; i >= 0 ; i--) {
-            System.out.print(i + " ");
-        }
+        UncheckedException uncheckedException = new UncheckedException();
+        System.out.println(uncheckedException instanceof RuntimeException);
     }
 }
-class Person {
-    String name;
-    int age;
-    
-}
 
-class MakingChanges {
-    public static void changeIdentities(Person p1, Person p2) {
-        // write your code here
-        String nameTemp = p1.name;
-        p1.name = p2.name;
-        p2.name = nameTemp;
+class UncheckedException extends RuntimeException {
 
-        int ageTemp = p1.age;
-        p1.age = p2.age;
-        p2.age = ageTemp;
+    public UncheckedException() {
     }
+
 }

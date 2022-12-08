@@ -1,14 +1,17 @@
 package practice;
 
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.function.IntBinaryOperator;
 import java.util.function.LongUnaryOperator;
 
 public class practice {
-    ublic static void print(String strArg) {
+    public static void print(String strArg) {
         System.out.println("print(\"" + strArg + "\")");
     }
-
+    public static void print(String strArg, int intArg) {
+        System.out.println("print(\"" + strArg + "\", " + intArg + ")");
+    }
     // write your method here
 
     /* Do not change code below */

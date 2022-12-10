@@ -19,8 +19,10 @@ public class practice {
     /* Do not change code below */
     public static void main(String[] args) {
         Set<Integer> set1 = Set.of(1, 2, 3);
+        System.out.println("chaof banj");
         Set<Integer> set2 = Set.of(3, 2, 1);
         System.out.println(set1.equals(set2));
+
     }
 }
 

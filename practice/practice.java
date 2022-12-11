@@ -19,20 +19,15 @@ public class practice {
     /* Do not change code below */
     public static void main(String[] args) {
         Set<Integer> set1 = Set.of(1, 2, 3);
-        System.out.println("chaof banj");
         Set<Integer> set2 = Set.of(3, 2, 1);
         System.out.println(set1.equals(set2));
 
     }
 }
 
-class Converter {
-
-    // Write a lambda expression that accepts two integer arguments and returns max
-    // of them.
-    // Sample Input 1:
-    // 4 2
-    // Sample Output 1:
-    // 4
-    public static IntBinaryOperator binaryOperator = (x, y) -> x > y ? x : y;
+class ThreadUtil {
+    public static String getName(Thread thread) {
+        // implement logic
+        return thread.toString();
+    }
 }

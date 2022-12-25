@@ -18,16 +18,29 @@ public class practice {
 
     /* Do not change code below */
     public static void main(String[] args) {
-        Set<Integer> set1 = Set.of(1, 2, 3);
-        Set<Integer> set2 = Set.of(3, 2, 1);
-        System.out.println(set1.equals(set2));
-
+        Thread thread = new Thread();
+        System.out.println(thread.MIN_PRIORITY);
+        System.out.println(thread.MAX_PRIORITY);
     }
 }
 
 class ThreadUtil {
     public static String getName(Thread thread) {
         // implement logic
-        return thread.toString();
+        return thread.getName().toString();
+    }
+
+    public static void printIfDaemon(Thread thread) {
+        // implement logic
+        if (thread.isDaemon()) {
+            System.out.println(thread.isDaemon());
+        }
+    }
+
+    public static void printCurrentThreadInfo() {
+        // get the thread and print its info
+        
+        System.out.println("name: " + Thread.currentThread().getName());
+        System.out.println("priority: " + Thread.currentThread().getPriority());
     }
 }

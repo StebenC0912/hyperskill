@@ -23,7 +23,7 @@ public class practice {
         System.out.println(thread.MAX_PRIORITY);
     }
 }
-
+//
 class ThreadUtil {
     public static String getName(Thread thread) {
         // implement logic

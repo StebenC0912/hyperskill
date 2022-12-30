@@ -1,8 +1,11 @@
-const list = [0, 1, '0', 'a', false];
-let count = 0;
-for (const item of list) {
-if (item==0) {
-count++;
-}
-}
-console.log(count);
+// modifies count = no. even numbers in range [min, max] 
+function countEvens (min, max) {
+    count = 0;
+    for (const i = min; i <= max; i++) { 
+    if (i%2==0) { count++; }
+    }
+    }
+    let count;
+    countEvens (5, 10); 
+    console.log(count);
+    // comment

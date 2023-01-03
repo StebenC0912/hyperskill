@@ -18,29 +18,76 @@ public class practice {
 
     /* Do not change code below */
     public static void main(String[] args) {
-        Thread thread = new Thread();
-        System.out.println(thread.MIN_PRIORITY);
-        System.out.println(thread.MAX_PRIORITY);
+        Thread test = new NumbersFilter();
+        test.start();
+
     }
 }
-//
-class ThreadUtil {
-    public static String getName(Thread thread) {
-        // implement logic
-        return thread.getName().toString();
+
+class HelloThread extends Thread {
+
+    @Override
+    public void run() {
+        String helloMsg = String.format("Hello, i'm %s", getName());
+        System.out.println(helloMsg);
+    }
+}
+
+class MessageNotifier extends Thread {
+
+    // write fields to store variables here
+    private String msg;
+    private int repeats;
+
+    public MessageNotifier(String msg, int repeats) {
+        // implement the constructor
+        this.msg = msg;
+        this.repeats = repeats;
     }
 
-    public static void printIfDaemon(Thread thread) {
-        // implement logic
-        if (thread.isDaemon()) {
-            System.out.println(thread.isDaemon());
+    @Override
+    public void run() {
+        // implement the method to print the message stored in a field
+        for (int i = 0; i < repeats; i++) {
+            System.out.println(msg);
         }
     }
+}
 
-    public static void printCurrentThreadInfo() {
-        // get the thread and print its info
-        // comment
-        System.out.println("name: " + Thread.currentThread().getName());
-        System.out.println("priority: " + Thread.currentThread().getPriority());
+class NumbersFilter extends Thread {
+
+    /* use it to read numbers from the standard input */
+    private final Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public void run() {
+        // implement this method
+        while (true) {
+            int input = scanner.nextInt();
+            if (input == 0) {
+                break;
+            }
+            if (input % 2 == 0) {
+                System.out.println(input);
+            }
+
+        }
     }
+}
+class NumbersThread extends Thread {
+    private int from;
+    private int to;
+    public NumbersThread(int from, int to) {
+        // implement the constructor
+        this.from = from;
+        this.to = to;
+    }
+
+    // you should override some method here  
+    @Override
+    public void run() {
+        for (int i = from; i <= to; i++) {
+            System.out.println(i);
+        }
+    }                                                
 }

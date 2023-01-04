@@ -131,7 +131,9 @@ public class tictactoe {
 
             }
         }
+        sc.close();
         return input;
+        
     }
 
     public static void main(String[] args) {

@@ -74,20 +74,45 @@ class NumbersFilter extends Thread {
         }
     }
 }
+
 class NumbersThread extends Thread {
     private int from;
     private int to;
+
     public NumbersThread(int from, int to) {
         // implement the constructor
         this.from = from;
         this.to = to;
     }
 
-    // you should override some method here  
+    // you should override some method here
     @Override
     public void run() {
         for (int i = from; i <= to; i++) {
             System.out.println(i);
         }
-    }                                                
+    }
+}
+
+class Account {
+
+    private long balance = 0;
+
+    public synchronized boolean withdraw(long amount) {
+        if (amount > this.balance)
+            return false;
+        else {
+            this.balance = balance - amount;
+        }
+        return true;
+    }
+
+    public synchronized void deposit(long amount) {
+        // do something useful
+        this.balance = balance + amount;
+    }
+
+    public long getBalance() {
+        return balance;
+    }
 }

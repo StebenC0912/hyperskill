@@ -119,7 +119,7 @@ class Account {
 
 class Util {
     public static int[] swapInts(int[] ints) {
-        return new int[]{ints[1], ints[0]};
+        return new int[] { ints[1], ints[0] };
     }
 }
 

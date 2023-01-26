@@ -17,4 +17,5 @@ public class Notebook {
         this.content = content;
         this.date = LocalDate.now();
     }
+
 }

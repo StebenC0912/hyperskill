@@ -17,11 +17,13 @@ public class NotebookServiceImpl implements NotebookService {
     }
     @Override
     public Notebook searchNotebook(String title) {
+        
         return notebookRepository.findByTitle(title);
     }
 
     @Override
     public void deleteNotebook(String title) {
+        // implement the delete method.
         notebookRepository.delete(title);
     }
 

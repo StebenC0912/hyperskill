@@ -14,24 +14,26 @@ import java.util.List;
 public class controller {
     @Autowired
     private NotebookService notebookService;
-
+    // implement the function create notebook
     @PostMapping
     public ResponseEntity<Notebook> createNotebook(@RequestBody Notebook notebook){
         Notebook savedNotebook = notebookService.createNotebook(notebook);
 
         return new ResponseEntity<>(savedNotebook, HttpStatus.CREATED);
     }
-
+    // implement search note book base on title require path var
     @GetMapping("/{id}")
     public ResponseEntity<Notebook> searchNotebook(@PathVariable("id") String title) {
         Notebook savedNotebook = notebookService.searchNotebook(title);
         return new ResponseEntity<>(savedNotebook, HttpStatus.OK);
     }
+    // implement delete method using title.
     @DeleteMapping("/{id}")
     public ResponseEntity<Notebook> deleteNotebook(@PathVariable("id") String title){
         notebookService.deleteNotebook(title);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    // get all notebook in database.
     @GetMapping("/all")
     public ResponseEntity<List<Notebook>> findAll(){
         List<Notebook> notebooks = notebookService.findAll();

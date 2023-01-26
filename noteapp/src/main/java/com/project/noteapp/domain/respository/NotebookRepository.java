@@ -10,6 +10,5 @@ public interface NotebookRepository {
     Notebook save(Notebook notebook);
     List<Notebook> findAll();
     Notebook findByTitle(String title);
-
     void delete(String title);
 }

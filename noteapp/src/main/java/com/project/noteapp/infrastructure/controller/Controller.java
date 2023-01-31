@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/notebook")
-public class controller {
+public class Controller {
     @Autowired
     private NotebookService notebookService;
     // implement the function create notebook

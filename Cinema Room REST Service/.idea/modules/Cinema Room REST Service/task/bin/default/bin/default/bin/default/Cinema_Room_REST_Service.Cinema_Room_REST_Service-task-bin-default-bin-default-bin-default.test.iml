@@ -4,7 +4,9 @@
     <output-test url="file://$MODULE_DIR$/../../../../../../../../../../Cinema Room REST Service/task/bin/default/bin/default/bin/default/out/test/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../../../../../../Cinema Room REST Service/task/bin/default/bin/default/bin/default/src/test" />
-    <content url="file://$MODULE_DIR$/../../../../../../../../../../Cinema Room REST Service/task/bin/default/bin/default/bin/default/test" />
+    <content url="file://$MODULE_DIR$/../../../../../../../../../../Cinema Room REST Service/task/bin/default/bin/default/bin/default/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../../../../../../../Cinema Room REST Service/task/bin/default/bin/default/bin/default/test" isTestSource="true" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Cinema_Room_REST_Service.Cinema_Room_REST_Service-task-bin-default-bin-default-bin-default.main" />

@@ -21,12 +21,16 @@ public class Cinema {
     public void generateSeat(int row, int col) {
         for (int i = 1; i <= row; i++) {
             for (int j = 1; j <= col; j++) {
-                this.available_seats.add(new Seat(i, j));
+                int price = i <= 4 ? 10 : 8;
+                this.available_seats.add(new Seat(i, j, price));
                 seat[i-1][j-1] = 'T';
             }
         }
     }
-
+    public responseCinema toResponse() {
+        responseCinema responseCinema = new responseCinema(this.total_rows, this.total_columns, this.available_seats);
+        return responseCinema;
+    }
     public char[][] getSeat() {
         return seat;
     }

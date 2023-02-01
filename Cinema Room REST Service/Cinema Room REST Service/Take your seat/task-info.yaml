@@ -284,18 +284,34 @@ files:
         };
     }
   learner_created: false
-- name: src/cinema/service/Service.java
-  visible: true
-  learner_created: true
 - name: src/cinema/model/Cinema.java
   visible: true
   learner_created: true
-- name: src/cinema/service/ServiceImpl.java
+- name: src/cinema/repository/Repository.java
+  visible: true
+  learner_created: true
+- name: src/cinema/service/CinemaService.java
+  visible: true
+  learner_created: true
+- name: src/cinema/service/implement/CinemaServiceImpl.java
+  visible: true
+  learner_created: true
+- name: src/cinema/model/responseCinema.java
+  visible: true
+  learner_created: true
+- name: src/cinema/model/inputSeat.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13376#comment
 status: Failed
 feedback:
-  message: Compilation Failed
-  time: "Fri, 27 Jan 2023 16:11:37 UTC"
+  message: |-
+    Wrong answer in test #3
+
+    POST /purchase should respond with status code 200, responded: 500
+
+    Response body:
+
+    {&quot;timestamp&quot;:&quot;2023-02-01T16:45:17.851+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;message&quot;:&quot;Index -1 out of bounds for length 81&quot;,&quot;path&quot;:&quot;/purchase&quot;}
+  time: "Wed, 01 Feb 2023 16:45:18 UTC"
 record: -1

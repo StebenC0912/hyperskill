@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/539847/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Mon, 30 Jan 2023 14:15:53 UTC"
+update_date: "Wed, 01 Feb 2023 15:27:07 UTC"
 stages:
 - id: 945
   step: 13375
@@ -179,6 +179,8 @@ topics:
     theory_id: 19510
   - title: Complex constructions in pseudocode
     theory_id: 20922
+  - title: External resources
+    theory_id: 6216
   - title: Multidimensional array
     theory_id: 1933
   - title: Fixed-size array
@@ -187,18 +189,12 @@ topics:
     theory_id: 5357
   - title: Web development
     theory_id: 13931
-  - title: External resources
-    theory_id: 6216
-  - title: HTML basics
-    theory_id: 6434
   - title: Libraries
     theory_id: 8504
   - title: Frameworks
     theory_id: 6701
-  - title: Tags and Attributes
-    theory_id: 7536
-  - title: HTML page structure
-    theory_id: 6491
+  - title: HTML basics
+    theory_id: 6434
   - title: What is a bug
     theory_id: 5504
   - title: Functional testing
@@ -207,6 +203,10 @@ topics:
     theory_id: 7545
   - title: Dependency injection
     theory_id: 20580
+  - title: Tags and Attributes
+    theory_id: 7536
+  - title: HTML page structure
+    theory_id: 6491
   - title: Interfaces
     theory_id: 9640
   - title: YAML

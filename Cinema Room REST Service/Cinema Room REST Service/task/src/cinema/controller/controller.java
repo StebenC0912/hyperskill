@@ -2,9 +2,10 @@ package cinema.controller;
 
 
 
-import cinema.model.Cinema;
+import cinema.model.inputSeat;
+import cinema.model.responseCinema;
 import cinema.model.Seat;
-import cinema.service.Service;
+import cinema.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class controller {
     @Autowired
-    private Service service;
+    private CinemaService cinemaService;
 
 
     @GetMapping("/seats")
-    public ResponseEntity<Cinema> getSeat() {
-        return new ResponseEntity<>(service.getAllSeat(), HttpStatus.OK);
+    public ResponseEntity<responseCinema> getAllSeat() {
+        return new ResponseEntity<>(cinemaService.getAllSeat(),HttpStatus.OK);
     }
     @PostMapping("/purchase")
-    public ResponseEntity<Seat> purchase (@RequestBody Seat seat) throws Exception {
-        return new ResponseEntity<>(service.purchase(seat), HttpStatus.CREATED);
+    public ResponseEntity<Seat> purchase (@RequestBody inputSeat seat) throws Exception {
+        return new ResponseEntity<>(cinemaService.purchase(seat), HttpStatus.CREATED);
     }
 }

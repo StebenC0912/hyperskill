@@ -107,7 +107,7 @@ Start test 1?[0m
 ?[0m?[0;34m
 ?[0m?[0;34mDescription:
 ?[0m?[0;34m
-?[0m?[0;34mField cinema in cinema.service.ServiceImpl required a bean of type 'cinema.model.Cinema' that could not be found.
+?[0m?[0;34mField cinema in cinema.service.implement.CinemaServiceImpl required a bean of type 'cinema.model.Cinema' that could not be found.
 ?[0m?[0;34m
 ?[0m?[0;34mThe injection point has the following annotations:
 ?[0m?[0;34m	- @org.springframework.beans.factory.annotation.Autowired(required=true)

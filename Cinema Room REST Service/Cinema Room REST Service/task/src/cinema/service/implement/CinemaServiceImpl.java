@@ -34,5 +34,4 @@ public class CinemaServiceImpl implements CinemaService {
         List<Seat> available = cinema.getAvailable_seats();
         return available.get(available.indexOf(seat));
     }
-
 }

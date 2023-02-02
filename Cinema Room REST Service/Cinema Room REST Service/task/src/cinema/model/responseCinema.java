@@ -26,7 +26,4 @@ public class responseCinema {
         return available_seats;
     }
 
-    public void setAvailable_seats(List<Seat> available_seats) {
-        this.available_seats = available_seats;
-    }
 }

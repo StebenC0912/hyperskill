@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.036s</div>
+<div class="counter">3.631s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,32 +76,13 @@
 <a name="start"></a>
 <h3 class="failures">start</h3>
 <span class="code">
-<pre>java.lang.AssertionError: Exception in test #1
+<pre>java.lang.AssertionError: Wrong answer in test #3
 
-Cannot start Spring application
+POST /purchase should respond with status code 200, responded: 500
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'controller': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'serviceImpl': Unsatisfied dependency expressed through field 'cinema'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cinema.model.Cinema' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
-	at cinema.Main.main(Main.java:12)
+Response body:
+
+{&quot;timestamp&quot;:&quot;2023-02-02T15:30:07.124+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;message&quot;:&quot;Index -1 out of bounds for length 81&quot;,&quot;path&quot;:&quot;/purchase&quot;}
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:203)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -164,7 +145,7 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 </thead>
 <tr>
 <td class="failures">start</td>
-<td class="failures">2.036s</td>
+<td class="failures">3.631s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -183,37 +164,155 @@ Start test 1?[0m
 ?[0m?[0;34m =========|_|==============|___/=/_/_/_/
 ?[0m?[0;34m :: Spring Boot ::                (v2.5.6)
 ?[0m?[0;34m
-?[0m?[0;34m2023-01-27 23:05:54.238  INFO 15952 --- [    Test worker] cinema.Main                              : Starting Main using Java 17.0.5 on stebenc with PID 15952 (started by stebenc in /home/stebenc/hyperskill/Cinema Room REST Service/Cinema Room REST Service/task)
-?[0m?[0;34m2023-01-27 23:05:54.242  INFO 15952 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
-?[0m?[0;34m2023-01-27 23:05:55.374  INFO 15952 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
-?[0m?[0;34m2023-01-27 23:05:55.383  INFO 15952 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-?[0m?[0;34m2023-01-27 23:05:55.384  INFO 15952 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-?[0m?[0;34m2023-01-27 23:05:55.453  INFO 15952 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-?[0m?[0;34m2023-01-27 23:05:55.453  INFO 15952 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1158 ms
-?[0m?[0;34m2023-01-27 23:05:55.649  WARN 15952 --- [    Test worker] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'controller': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'serviceImpl': Unsatisfied dependency expressed through field 'cinema'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cinema.model.Cinema' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-?[0m?[0;34m2023-01-27 23:05:55.655  INFO 15952 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-?[0m?[0;34m2023-01-27 23:05:55.675  INFO 15952 --- [    Test worker] ConditionEvaluationReportLoggingListener : 
+?[0m?[0;34m2023-02-02 22:30:04.147  INFO 14409 --- [    Test worker] cinema.Main                              : Starting Main using Java 17.0.5 on stebenc with PID 14409 (started by stebenc in /home/stebenc/hyperskill/Cinema Room REST Service/Cinema Room REST Service/task)
+?[0m?[0;34m2023-02-02 22:30:04.150  INFO 14409 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
+?[0m?[0;34m2023-02-02 22:30:05.572  INFO 14409 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+?[0m?[0;34m2023-02-02 22:30:05.587  INFO 14409 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+?[0m?[0;34m2023-02-02 22:30:05.588  INFO 14409 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+?[0m?[0;34m2023-02-02 22:30:05.673  INFO 14409 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+?[0m?[0;34m2023-02-02 22:30:05.674  INFO 14409 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1471 ms
+?[0m?[0;34m2023-02-02 22:30:06.389  INFO 14409 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+?[0m?[0;34m2023-02-02 22:30:06.432  INFO 14409 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+?[0m?[0;34m2023-02-02 22:30:06.449  INFO 14409 --- [    Test worker] cinema.Main                              : Started Main in 2.667 seconds (JVM running for 3.44)
+?[0;34m2023-02-02 22:30:06.895  INFO 14409 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+?[0m?[0;34m2023-02-02 22:30:06.895  INFO 14409 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+?[0m?[0;34m2023-02-02 22:30:06.897  INFO 14409 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+?[0m?[1;31m
+Start test 2?[0m
+?[1;31m
+Start test 3?[0m
+?[0;34m2023-02-02 22:30:07.089 ERROR 14409 --- [io-28852-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 81] with root cause
 ?[0m?[0;34m
-?[0m?[0;34mError starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-?[0m?[0;34m2023-01-27 23:05:55.690 ERROR 15952 --- [    Test worker] o.s.b.d.LoggingFailureAnalysisReporter   : 
+?[0m?[0;34mjava.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 81
+?[0m?[0;34m	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266) ~[na:na]
+?[0m?[0;34m	at java.base/java.util.Objects.checkIndex(Objects.java:359) ~[na:na]
+?[0m?[0;34m	at java.base/java.util.ArrayList.get(ArrayList.java:427) ~[na:na]
+?[0m?[0;34m	at cinema.service.implement.CinemaServiceImpl.purchase(CinemaServiceImpl.java:39) ~[main/:na]
+?[0m?[0;34m	at cinema.controller.controller.purchase(controller.java:29) ~[main/:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+?[0m?[0;34m	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:280) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:311) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:170) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:221) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:145) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:143) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:280) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:311) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:187) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:145) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:143) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:280) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:311) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:187) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:145) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:143) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:280) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:311) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:187) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:145) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:143) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.6.jar:2.5.6]
+?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:280) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:311) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:187) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:145) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:143) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:280) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:311) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:187) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:145) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
+?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:143) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+?[0m?[0;34m	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 ?[0m?[0;34m
-?[0m?[0;34m***************************
-?[0m?[0;34mAPPLICATION FAILED TO START
-?[0m?[0;34m***************************
-?[0m?[0;34m
-?[0m?[0;34mDescription:
-?[0m?[0;34m
-?[0m?[0;34mField cinema in cinema.service.implement.CinemaServiceImpl required a bean of type 'cinema.model.Cinema' that could not be found.
-?[0m?[0;34m
-?[0m?[0;34mThe injection point has the following annotations:
-?[0m?[0;34m	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-?[0m?[0;34m
-?[0m?[0;34m
-?[0m?[0;34mAction:
-?[0m?[0;34m
-?[0m?[0;34mConsider defining a bean of type 'cinema.model.Cinema' in your configuration.
-?[0m?[0;34m
-?[0m</pre>
+</pre>
 </span>
 </div>
 </div>
@@ -224,7 +323,7 @@ Start test 1?[0m
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3</a> at Jan 27, 2023, 11:05:55 PM</p>
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at Feb 2, 2023, 10:30:07 PM</p>
 </div>
 </div>
 </body>

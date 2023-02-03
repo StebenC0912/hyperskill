@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/539847/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Wed, 01 Feb 2023 15:27:07 UTC"
+update_date: "Fri, 03 Feb 2023 13:48:40 UTC"
 stages:
 - id: 945
   step: 13375
@@ -65,6 +65,8 @@ topics:
     theory_id: 19550
   - title: Logging in Spring Boot
     theory_id: 17457
+  - title: The concept of patterns
+    theory_id: 3611
   - title: HTTP messages
     theory_id: 6752
   - title: Introduction to Spring Web MVC
@@ -73,8 +75,20 @@ topics:
     theory_id: 7834
   - title: Postman
     theory_id: 8512
+  - title: Introduction to Spring Data
+    theory_id: 16299
+  - title: CRUD repositories
+    theory_id: 18031
   - title: Getting data from REST
     theory_id: 13287
+  - title: Posting and deleting data via REST
+    theory_id: 13292
+  - title: Handling requests with bodies
+    theory_id: 13334
+  - title: Application layers
+    theory_id: 13971
+  - title: Data Transfer Object in Spring
+    theory_id: 25613
   - title: Computer programming
     theory_id: 8739
   - title: Paradigms
@@ -205,70 +219,6 @@ topics:
     theory_id: 20580
   - title: Tags and Attributes
     theory_id: 7536
-  - title: HTML page structure
-    theory_id: 6491
-  - title: Interfaces
-    theory_id: 9640
-  - title: YAML
-    theory_id: 12722
-  - title: Introduction to software architecture
-    theory_id: 15368
-  - title: JSON
-    theory_id: 6854
-  - title: Jackson
-    theory_id: 21027
-  - title: Introduction to generic programming
-    theory_id: 3492
-  - title: Generics and Object
-    theory_id: 3493
-  - title: What are collections
-    theory_id: 3770
-  - title: The Collections Framework overview
-    theory_id: 3624
-  - title: ArrayList
-    theory_id: 3567
-  - title: The List interface
-    theory_id: 3581
-  - title: MVC
-    theory_id: 17197
-  - title: Defining classes
-    theory_id: 3618
-  - title: Constructor
-    theory_id: 3535
-  - title: Instance methods
-    theory_id: 3495
-  - title: Access modifiers
-    theory_id: 3589
-  - title: Getters and setters
-    theory_id: 3599
-  - title: Inheritance
-    theory_id: 3583
-  - title: Protected modifier
-    theory_id: 6692
-  - title: Referencing subclass objects
-    theory_id: 3585
-  - title: The Object class
-    theory_id: 3596
-  - title: Multiple constructors
-    theory_id: 3538
-  - title: The keyword super
-    theory_id: 3588
-  - title: Objects
-    theory_id: 4727
-  - title: Static members
-    theory_id: 3534
-  - title: Annotations basics
-    theory_id: 3622
-  - title: Hiding and overriding
-    theory_id: 3572
-  - title: Polymorphism
-    theory_id: 3587
-  - title: Interface
-    theory_id: 3615
-  - title: Inner classes
-    theory_id: 11505
-  - title: Boxing and unboxing
-    theory_id: 3595
   1:
   - title: Posting and deleting data via REST
     theory_id: 13292

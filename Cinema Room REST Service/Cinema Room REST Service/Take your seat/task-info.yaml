@@ -287,9 +287,6 @@ files:
 - name: src/cinema/model/Cinema.java
   visible: true
   learner_created: true
-- name: src/cinema/repository/Repository.java
-  visible: true
-  learner_created: true
 - name: src/cinema/service/CinemaService.java
   visible: true
   learner_created: true
@@ -302,6 +299,15 @@ files:
 - name: src/cinema/model/inputSeat.java
   visible: true
   learner_created: true
+- name: bin/default/src/cinema/model/inputSeat.class
+  visible: true
+  learner_created: true
+- name: bin/default/src/cinema/model/responseCinema.class
+  visible: true
+  learner_created: true
+- name: bin/default/src/cinema/service/CinemaService.class
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13376#comment
 status: Failed
 feedback:
@@ -312,6 +318,6 @@ feedback:
 
     Response body:
 
-    {&quot;timestamp&quot;:&quot;2023-02-01T16:45:17.851+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;message&quot;:&quot;Index -1 out of bounds for length 81&quot;,&quot;path&quot;:&quot;/purchase&quot;}
-  time: "Wed, 01 Feb 2023 16:45:18 UTC"
+    {&quot;timestamp&quot;:&quot;2023-02-02T15:30:07.124+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;message&quot;:&quot;Index -1 out of bounds for length 81&quot;,&quot;path&quot;:&quot;/purchase&quot;}
+  time: "Thu, 02 Feb 2023 15:30:07 UTC"
 record: -1

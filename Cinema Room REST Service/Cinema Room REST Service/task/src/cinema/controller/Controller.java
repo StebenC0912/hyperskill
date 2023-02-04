@@ -27,17 +27,17 @@ public class Controller {
     @PostMapping("/purchase")
     public ResponseEntity<?> purchase(@RequestBody InputSeat inputSeat) {
         if (inputSeat.getRow() < 0 || inputSeat.getColumn() < 0 || inputSeat.getRow() > 9 || inputSeat.getColumn() > 9)
-            return new ResponseEntity<>(Map.of("error", "The number of a row or a column is out of bounds!"), HttpStatus.OK);
+            return new ResponseEntity<>(Map.of("error", "The number of a row or a column is out of bounds!"), HttpStatus.BAD_REQUEST);
         List<Seat> availableSeat = cinema.getAvailable_seats();
         Seat orderSeat = inputSeat.toSeat();
         for (int i = 0; i < availableSeat.size(); i++) {
             if (availableSeat.get(i).equals(orderSeat)) {
                 availableSeat.remove(i);
                 cinema.setAvailable_seats(availableSeat);
-                return new ResponseEntity<>(orderSeat, HttpStatus.ACCEPTED);
+                return new ResponseEntity<>(orderSeat, HttpStatus.OK);
             }
         }
-        return new ResponseEntity<>(Map.of("error", "The ticket has been already purchased!"), HttpStatus.OK);
+        return new ResponseEntity<>(Map.of("error", "The ticket has been already purchased!"), HttpStatus.BAD_REQUEST);
 
     }
 }

@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.ArrayList;
 import java.util.List;
-@EntityScan
+
 public class Cinema {
     private int total_rows;
     private int total_columns;

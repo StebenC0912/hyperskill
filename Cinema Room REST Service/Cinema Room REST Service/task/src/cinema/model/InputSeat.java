@@ -18,7 +18,7 @@ public class InputSeat {
     }
 
     public Seat toSeat() {
-        int price = this.row < 4 ? 8 : 10;
+        int price = this.row < 5 ? 10 : 8;
         return new Seat(this.row, this.column, price);
     }
 }

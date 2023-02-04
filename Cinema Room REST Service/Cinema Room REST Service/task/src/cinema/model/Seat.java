@@ -2,7 +2,7 @@ package cinema.model;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan
+
 public class Seat {
     private int row;
     private int column;
@@ -13,13 +13,12 @@ public class Seat {
         this.column = column;
         this.price = price;
     }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seat seat = (Seat) o;
+        return row == seat.row && column == seat.column;
     }
 
     public int getRow() {
@@ -36,5 +35,13 @@ public class Seat {
 
     public void setColumn(int column) {
         this.column = column;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

@@ -20,6 +20,7 @@ public class Main {
 
         // your code goes here
         System.out.printf("%s is %d years old and is %s", person.age(), person.age(), person.gender());
+        System.out.println("end program");
     }
     //Don't change the code below
     static class SlowStringProcessor extends Thread {

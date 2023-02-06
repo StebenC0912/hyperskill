@@ -1,10 +1,6 @@
 package practice;
 
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.function.IntBinaryOperator;
-import java.util.function.LongUnaryOperator;
 
 public class practice {
     public static void print(String strArg) {
